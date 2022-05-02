@@ -11,7 +11,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
-import CreateTask from './components/tasks/createTask'
+import CreateTask from './components/tasks/CreateTask'
 
 class App extends Component {
   constructor (props) {

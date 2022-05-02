@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { createTask } from '../../api/tasks'
 
 class CreateTask extends Component {
   constructor (props) {
@@ -23,7 +24,6 @@ class CreateTask extends Component {
 
     const { user, msgAlert } = this.props
 
-    // eslint-disable-next-line no-undef
     createTask(this.state, user)
       .then(() => {
         msgAlert({
