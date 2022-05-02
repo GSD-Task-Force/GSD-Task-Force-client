@@ -20,7 +20,7 @@ export const createTask = (data, user) => {
 export const indexTasks = (user) => {
   return axios({
     method: 'GET',
-    url: apiUrl + '/tasks/',
+    url: apiUrl + '/task/',
     headers: {
       Authorization: `Bearer ${user.token}`
     }
