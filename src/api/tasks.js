@@ -17,6 +17,16 @@ export const createTask = (data, user) => {
   })
 }
 
+export const indexTasks = (user) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/tasks/',
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
 export const updateTask = (id, data, user) => {
   return axios({
     method: 'PATCH',
