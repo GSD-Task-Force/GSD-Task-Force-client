@@ -1,8 +1,6 @@
-import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-import apiUrl from './apiConfig'
+import { indexTasks } from '../../api/tasks'
 
 class IndexTasks extends Component {
   constructor (props) {
@@ -13,14 +11,25 @@ class IndexTasks extends Component {
     }
   }
 
-  handleClick = () => {
-    console.log('testing')
-    axios({
-      method: 'GET',
-      url: apiUrl + '/tasks'
-    })
-      .then((response) => this.setState({ books: response.data.tasks }))
-      .catch(console.error)
+  componentDidMount () {
+    const { user, msgAlert } = this.props
+
+    indexTasks(user)
+      .then(res => this.setState({ tasks: res.data.tasks }))
+      .then(() => {
+        msgAlert({
+          heading: 'Index success',
+          message: 'Showing all tasks',
+          variant: 'success'
+        })
+      })
+      .catch(error => {
+        msgAlert({
+          heading: 'Index fail',
+          message: 'Index error: ' + error.message,
+          variant: 'danger'
+        })
+      })
   }
 
   render () {
@@ -45,7 +54,7 @@ class IndexTasks extends Component {
 
     return (
       <>
-        <h4>Task List</h4>
+        <h3>Task List:</h3>
         <ul>
           {taskJSX}
         </ul>
