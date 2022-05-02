@@ -4,12 +4,14 @@ import axios from 'axios'
 export const CreateTask = (data, user) => {
   return axios({
     method: 'POST',
-    url: apiUrl + '/sign-up/',
+    url: apiUrl + '/task/',
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    },
     data: {
-      credentials: {
-        email: credentials.email,
-        password: credentials.password,
-        password_confirmation: credentials.passwordConfirmation
+      task: {
+        title: data.title,
+        description: data.description
       }
     }
   })
