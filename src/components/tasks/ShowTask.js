@@ -37,7 +37,7 @@ class ShowTask extends Component {
     const { match, user, msgAlert, history } = this.props
 
     deleteTask(match.params.id, user)
-      .then(() => history.push('/task'))
+      .then(() => history.push('/'))
       .then(() => {
         msgAlert({
           heading: 'Successfully Deleted Task',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { withRouter } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { createTask } from '../../api/tasks'
@@ -22,9 +22,10 @@ class CreateTask extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const { user, msgAlert } = this.props
+    const { user, msgAlert, history } = this.props
 
     createTask(this.state, user)
+      .then(() => history.push('/'))
       .then(() => {
         msgAlert({
           heading: 'Task created',
@@ -72,4 +73,4 @@ class CreateTask extends Component {
   }
 }
 
-export default CreateTask
+export default withRouter(CreateTask)
