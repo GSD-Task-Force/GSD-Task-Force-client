@@ -108,7 +108,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            path='/task'
+            path='/tasks'
             render={() => (
               <IndexTasks msgAlert={this.msgAlert} user={user} />
             )}
