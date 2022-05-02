@@ -35,7 +35,7 @@ onChangePassword = (event) => {
         variant: 'success'
       })
     )
-    .then(() => history.push('/'))
+    .then(() => history.push('/tasks/'))
     .catch((error) => {
       this.setState({ oldPassword: '', newPassword: '' })
       msgAlert({
