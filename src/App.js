@@ -11,6 +11,8 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
+import CreateTask from './components/tasks/createTask'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -85,6 +87,13 @@ class App extends Component {
             render={() => (
               <ChangePassword msgAlert={this.msgAlert} user={user} />
             )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-task'
+            render={() => {
+              <CreateTask msgAlert={this.msgAlert} user={user} />
+            }}
           />
         </main>
       </Fragment>

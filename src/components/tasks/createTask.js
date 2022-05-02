@@ -1,0 +1,75 @@
+import React, { Component } from 'react'
+
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
+class CreateTask extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      title: '',
+      description: ''
+    }
+  }
+
+  handleChange = (event) =>
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    const { user, msgAlert } = this.props
+
+    // eslint-disable-next-line no-undef
+    createTask(this.state, user)
+      .then(() => {
+        msgAlert({
+          heading: 'Task created',
+          message: 'Now you\'ll for sure remember this!',
+          variant: 'success'
+        })
+      })
+      .catch((error) => {
+        msgAlert({
+          heading: 'Task creation failed',
+          message: 'Task error: ' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
+
+  render () {
+    return (
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group controlId='title'>
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            required
+            type='text'
+            name='title'
+            value={this.state.title}
+            placeholder='Task Title'
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId='description'>
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            required
+            type='text'
+            name='description'
+            value={this.state.description}
+            placeholder='Task Description'
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Button variant='primary' type='submit'>Submit</Button>
+      </Form>
+    )
+  }
+}
+
+export default CreateTask
