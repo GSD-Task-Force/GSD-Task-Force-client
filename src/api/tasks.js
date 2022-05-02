@@ -40,7 +40,7 @@ export const showTask = (id, user) => {
 export const updateTask = (id, data, user) => {
   return axios({
     method: 'PATCH',
-    url: apiUrl + '/task/',
+    url: apiUrl + '/task/' + id,
     headers: {
       Authorization: `Bearer ${user.token}`
     },

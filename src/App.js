@@ -100,7 +100,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            exact path='/tasks/:id'
+            exact path='/tasks/:id/update'
             render={() => (
               <UpdateTask msgAlert={this.msgAlert} user={user}
               />
@@ -115,7 +115,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
-            path='/tasks/:id'
+            exact path='/tasks/:id'
             render={() => (
               <ShowTask msgAlert={this.msgAlert} user={user} />
             )}

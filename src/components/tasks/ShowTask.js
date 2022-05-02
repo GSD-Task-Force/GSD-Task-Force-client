@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { showTask, deleteTask } from '../../api/tasks'
 import Button from 'react-bootstrap/Button'
 
@@ -60,16 +60,14 @@ class ShowTask extends Component {
     }
 
     const { title, description, owner } = this.state.task
-    const { user, match } = this.props
+    const { user, match, history } = this.props
     return (
       <>
         <h4>{title}</h4>
         <p>{description}</p>
         {user._id === owner && (
           <>
-            <Link to={`/tasks/${match.params.id}/update`}>
-              <Button>Update</Button>
-            </Link>
+            <Button onClick={() => history.push(`/tasks/${match.params.id}/update`)}>Update</Button>
             <Button onClick={this.handleDelete}>Delete</Button>
           </>
         )}
