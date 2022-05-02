@@ -13,6 +13,7 @@ import ChangePassword from './components/auth/ChangePassword'
 
 import CreateTask from './components/tasks/CreateTask'
 import UpdateTask from './components/tasks/UpdateTask'
+import IndexTasks from './components/tasks/IndexTasks'
 
 class App extends Component {
   constructor (props) {
@@ -103,6 +104,13 @@ class App extends Component {
               <UpdateTask msgAlert={this.msgAlert} user={user}
               />
             )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/tasks'
+            render={() => {
+              <IndexTasks msgAlert={this.msgAlert} user={user} />
+            }}
           />
         </main>
       </Fragment>
