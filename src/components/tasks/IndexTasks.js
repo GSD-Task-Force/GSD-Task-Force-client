@@ -7,7 +7,7 @@ class IndexTasks extends Component {
     super(props)
 
     this.state = {
-      tasks: null
+      tasks: []
     }
   }
 
@@ -15,7 +15,7 @@ class IndexTasks extends Component {
     const { user, msgAlert } = this.props
 
     indexTasks(user)
-      .then(res => this.setState({ tasks: res.data.tasks }))
+      .then(res => this.setState({ tasks: res.data.task }))
       .then(() => {
         msgAlert({
           heading: 'Index success',
@@ -46,7 +46,7 @@ class IndexTasks extends Component {
       taskJSX = tasks.map((task) => (
         <li key={task._id}>
           <Link to={`/tasks/${task._id}`}>
-            {task.title}: {task.descripton}
+            {task.title}: {task.description}
           </Link>
         </li>
       ))
