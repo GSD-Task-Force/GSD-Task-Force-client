@@ -25,7 +25,7 @@ class CreateTask extends Component {
       const { user, msgAlert, history } = this.props
 
       createTask(this.state, user)
-        .then(() => history.push('/'))
+        .then(() => history.push('/tasks/'))
         .then(() => {
           msgAlert({
             heading: 'Task created',
