@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { createTask } from '../../api/tasks'
 
-class CreateTask extends Component {
+class TaskCreate extends Component {
   constructor (props) {
     super(props)
 
@@ -75,4 +75,4 @@ class CreateTask extends Component {
     }
 }
 
-export default withRouter(CreateTask)
+export default withRouter(TaskCreate)

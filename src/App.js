@@ -11,7 +11,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
-import CreateTask from './components/tasks/CreateTask'
+import TaskCreate from './components/tasks/TaskCreate'
 import IndexTasks from './components/tasks/IndexTasks'
 import ShowTask from './components/tasks/ShowTask'
 import UpdateTask from './components/tasks/UpdateTask'
@@ -95,7 +95,7 @@ class App extends Component {
             user={user}
             path='/create-task'
             render={() => (
-              <CreateTask msgAlert={this.msgAlert} user={user} />
+              <TaskCreate msgAlert={this.msgAlert} user={user} />
             )}
           />
           <AuthenticatedRoute
