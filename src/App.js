@@ -12,9 +12,9 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
 import CreateTask from './components/tasks/CreateTask'
-import UpdateTask from './components/tasks/UpdateTask'
 import IndexTasks from './components/tasks/IndexTasks'
 import ShowTask from './components/tasks/ShowTask'
+import UpdateTask from './components/tasks/UpdateTask'
 
 class App extends Component {
   constructor (props) {
