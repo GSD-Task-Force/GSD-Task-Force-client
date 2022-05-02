@@ -27,6 +27,16 @@ export const indexTasks = (user) => {
   })
 }
 
+export const showTask = (id, user) => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/task/' + id,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
 export const updateTask = (id, data, user) => {
   return axios({
     method: 'PATCH',
@@ -41,6 +51,16 @@ export const updateTask = (id, data, user) => {
         title: data.title,
         description: data.description
       }
+    }
+  })
+}
+
+export const deleteTask = (id, user) => {
+  return axios({
+    method: 'DELETE',
+    url: apiUrl + '/task/' + id,
+    headers: {
+      Authorization: `Bearer ${user.token}`
     }
   })
 }

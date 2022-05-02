@@ -14,6 +14,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import CreateTask from './components/tasks/CreateTask'
 import UpdateTask from './components/tasks/UpdateTask'
 import IndexTasks from './components/tasks/IndexTasks'
+import ShowTask from './components/tasks/ShowTask'
 
 class App extends Component {
   constructor (props) {
@@ -110,6 +111,13 @@ class App extends Component {
             path='/task'
             render={() => (
               <IndexTasks msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/tasks/:id'
+            render={() => (
+              <ShowTask msgAlert={this.msgAlert} user={user} />
             )}
           />
         </main>
