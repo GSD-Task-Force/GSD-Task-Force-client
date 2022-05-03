@@ -16,7 +16,7 @@ class ShowTask extends Component {
     const { match, user, msgAlert } = this.props
 
     showTask(match.params.id, user)
-      .then(res => this.setState({ task: res.data.task }))
+      .then((res) => this.setState({ task: res.data.task }))
       .then(() => {
         msgAlert({
           heading: 'Successfully Showing Task',
@@ -24,7 +24,7 @@ class ShowTask extends Component {
           variant: 'success'
         })
       })
-      .catch(error => {
+      .catch((error) => {
         msgAlert({
           heading: 'Show Task Failed',
           message: 'Error message: ' + error.message,
@@ -33,49 +33,49 @@ class ShowTask extends Component {
       })
   }
 
-  handleDelete = () => {
-    const { match, user, msgAlert, history } = this.props
+handleDelete = () => {
+  const { match, user, msgAlert, history } = this.props
 
-    deleteTask(match.params.id, user)
-      .then(() => history.push('/tasks/'))
-      .then(() => {
-        msgAlert({
-          heading: 'Successfully Deleted Task',
-          message: 'WooHoo!',
-          variant: 'success'
-        })
+  deleteTask(match.params.id, user)
+    .then(() => history.push('/tasks/'))
+    .then(() => {
+      msgAlert({
+        heading: 'Successfully Deleted Task',
+        message: 'WooHoo!',
+        variant: 'success'
       })
-      .catch(error => {
-        msgAlert({
-          heading: 'Delete Task Failed',
-          message: 'Error message: ' + error.message,
-          variant: 'danger'
-        })
+    })
+    .catch((error) => {
+      msgAlert({
+        heading: 'Delete Task Failed',
+        message: 'Error message: ' + error.message,
+        variant: 'danger'
       })
+    })
+}
+
+render () {
+  if (this.state.task === null) {
+    return 'Loading...'
   }
 
-  render () {
-    if (this.state.task === null) {
-      return 'Loading...'
-    }
-
-    const { title, description, owner } = this.state.task
-    const { user, match, history } = this.props
-    return (
-      <>
-        <h4>{title}</h4>
-        <p>{description}</p>
-        {user._id === owner && (
-          <>
-            <Button
-              onClick={() => history.push(`/tasks/${match.params.id}/update`)}>Update
-            </Button>
-            <Button onClick={this.handleDelete}>Delete</Button>
-          </>
-        )}
-      </>
-    )
-  }
+  const { title, description, owner } = this.state.task
+  const { user, match, history } = this.props
+  return (
+    <>
+      <h4>{title}</h4>
+      <p>{description}</p>
+      {user._id === owner && (
+        <>
+          <Button
+            onClick={() => history.push(`/tasks/${match.params.id}/update`)}>Update
+          </Button>
+          <Button onClick={this.handleDelete}>Delete</Button>
+        </>
+      )}
+    </>
+  )
+}
 }
 
 export default withRouter(ShowTask)

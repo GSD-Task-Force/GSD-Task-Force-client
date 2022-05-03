@@ -55,7 +55,7 @@ render () {
   return (
     <div className='row'>
       <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign Up</h3>
+        <h4>Sign Up</h4>
         <Form onSubmit={this.onSignUp}>
           <Form.Group controlId='email'>
             <Form.Label>Email address</Form.Label>
@@ -78,7 +78,7 @@ render () {
               placeholder='Password'
               onChange={this.handleChange}
             />
-          </Form.Group>
+          </Form.Group >
           <Form.Group controlId='passwordConfirmation'>
             <Form.Label>Password Confirmation</Form.Label>
             <Form.Control

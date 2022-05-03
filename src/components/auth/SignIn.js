@@ -6,6 +6,7 @@ import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+// import Card from 'react-bootstrap/Card'
 
 class SignIn extends Component {
   constructor (props) {
@@ -53,7 +54,7 @@ render () {
   return (
     <div className='row'>
       <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign In</h3>
+        <h4>Sign In</h4>
         <Form onSubmit={this.onSignIn}>
           <Form.Group controlId='email'>
             <Form.Label>Email address</Form.Label>

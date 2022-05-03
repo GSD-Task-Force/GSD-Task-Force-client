@@ -17,7 +17,12 @@ class UpdateTask extends Component {
   componentDidMount () {
     const { match, user, msgAlert } = this.props
     showTask(match.params.id, user)
-      .then((res) => this.setState({ title: res.data.task.title, description: res.data.task.description }))
+      .then((res) =>
+        this.setState({
+          title: res.data.task.title,
+          description: res.data.task.description
+        })
+      )
       .then(() => {
         msgAlert({
           heading: 'Preloaded the update',
@@ -64,33 +69,35 @@ handleSubmit = (event) => {
 
 render () {
   return (
-    <Form onSubmit={this.handleSubmit}>
-      <Form.Group controlId='title'>
-        <Form.Label>Title</Form.Label>
-        <Form.Control
-          required
-          type='text'
-          name='title'
-          value={this.state.title}
-          placeholder='Update Task Title'
-          onChange={this.handleChange}
-        />
-      </Form.Group>
-      <Form.Group controlId='description'>
-        <Form.Label>Description</Form.Label>
-        <Form.Control
-          required
-          type='text'
-          name='description'
-          value={this.state.description}
-          placeholder='Update Task Description'
-          onChange={this.handleChange}
-        />
-      </Form.Group>
-      <Button variant='primary' type='submit'>
+    <div className='box1'>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group controlId='title'>
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            required
+            type='text'
+            name='title'
+            value={this.state.title}
+            placeholder='Update Task Title'
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId='description'>
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            required
+            type='text'
+            name='description'
+            value={this.state.description}
+            placeholder='Update Task Description'
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Button variant='primary' type='submit'>
         Submit
-      </Button>
-    </Form>
+        </Button>
+      </Form>
+    </div>
   )
 }
 }

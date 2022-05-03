@@ -22,7 +22,7 @@ const unauthenticatedOptions = (
 const Header = ({ user }) => (
   <Navbar bg='primary' variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>GSD-Task-Force</Link>
+      <Link to='/' style={{ color: '#FFF', padding: '5px 0px 0px 0px', textDecoration: 'none' }}>GSD-Task-Force</Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>

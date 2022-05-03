@@ -44,33 +44,35 @@ class TaskCreate extends Component {
 
     render () {
       return (
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId='title'>
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              required
-              type='text'
-              name='title'
-              value={this.state.title}
-              placeholder='Task Title'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId='description'>
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              required
-              type='text'
-              name='description'
-              value={this.state.description}
-              placeholder='Task Description'
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button variant='primary' type='submit'>
+        <div className='box'>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group controlId='title'>
+              <Form.Label>Title</Form.Label>
+              <Form.Control
+                required
+                type='text'
+                name='title'
+                value={this.state.title}
+                placeholder='Task Title'
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId='description'>
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                required
+                type='text'
+                name='description'
+                value={this.state.description}
+                placeholder='Task Description'
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Button variant='primary' type='submit'>
             Submit
-          </Button>
-        </Form>
+            </Button>
+          </Form>
+        </div>
       )
     }
 }
