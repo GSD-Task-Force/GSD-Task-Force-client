@@ -44,11 +44,14 @@ class IndexTasks extends Component {
       taskJSX = 'No tasks on your to do list. Try adding one.'
     } else {
       taskJSX = tasks.map((task) => (
-        <li key={task._id}>
-          <Link to={`/tasks/${task._id}`}>
-            {task.title}: {task.description}
-          </Link>
-        </li>
+        <div className='card' key={task._id}>
+          <div className='card-body'>
+            <Link to={`/tasks/${task._id}`}>
+              <h5 className='card-title'>{task.title}</h5>
+            </Link>
+            <p className='card-text'>{task.description}</p>
+          </div>
+        </div>
       ))
     }
 
