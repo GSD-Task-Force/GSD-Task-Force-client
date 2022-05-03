@@ -33,21 +33,32 @@ class IndexTasks extends Component {
       })
   }
 
+    // this is the tricky part of the checkbox thing
     handleClick = (event) => {
+      // make shallow copy
       const tasks = [...this.state.tasks]
+      // get index of task whose checkbox I clicked
+      // the reason that works is because I named the checkbox the id of task it corresponds to
+      // in other words, event.target.name is the id of the task
       const index = tasks.findIndex((task) => {
         return task._id === event.target.name
       })
+      // switch checked from true to false or false to true in the shallow copy
       tasks[index].checked = !tasks[index].checked
-      updateTask(event.target.name, tasks[index], this.props.user).then(() =>
-        this.setState({ tasks })
-      )
+      updateTask(event.target.name, tasks[index], this.props.user)
+        .then(() =>
+          this.setState({ tasks: tasks })
+        )
+        .catch(error => this.props.msgAlert({
+          heading: 'Checked failure',
+          message: 'Something went wrong with checking this box: ' + error.message,
+          variant: 'danger'
+        }))
     }
 
     inputHandler = (event) => {
       const lowerCase = event.target.value.toLowerCase()
       this.setState({ inputText: lowerCase })
-      console.log(this.state.inputText)
     }
 
     render () {
