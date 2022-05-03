@@ -70,7 +70,7 @@ class IndexTasks extends Component {
         // Index of finds the spot in a string where another whole thing lives
         // So ['a', 'b', 'c'].indexOf['c'] = 2
         // If it isn't in the thing at all, indexOf returns -1
-        // So what we're doing with this line is saying "If the index of user text is anything but -1 in task.title", map that task
+        // So what we're doing with this line is saying "If the index of user text is anything but -1 in task.title", map that task.
         taskJSX = tasks.filter(task => task.title.toLowerCase().indexOf(this.state.inputText) > -1 || this.state.inputText === '').map((task) => {
           if (task.checked) {
             return (
