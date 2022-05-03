@@ -49,7 +49,8 @@ export const updateTask = (id, data, user) => {
     data: {
       task: {
         title: data.title,
-        description: data.description
+        description: data.description,
+        checked: data.checked
       }
     }
   })

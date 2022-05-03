@@ -67,7 +67,9 @@ class ShowTask extends Component {
         <p>{description}</p>
         {user._id === owner && (
           <>
-            <Button onClick={() => history.push(`/tasks/${match.params.id}/update`)}>Update</Button>
+            <Button
+              onClick={() => history.push(`/tasks/${match.params.id}/update`)}>Update
+            </Button>
             <Button onClick={this.handleDelete}>Delete</Button>
           </>
         )}
