@@ -5,11 +5,22 @@ import { Link, NavLink } from 'react-router-dom'
 
 const authenticatedOptions = (
   <Fragment>
-    <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
-    <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
-    <NavLink to='/create-task' className='nav-link'>Create Task</NavLink>
-    <NavLink to='/tasks/' className='nav-link'>Home</NavLink>
+    <NavLink to='/create-task' className='nav-link'>
+Create Task
+    </NavLink>
+    <NavLink to='/tasks/' className='nav-link'>
+Home
+    </NavLink>
+    <div className='d-flex'>
+      <NavLink to='/change-password' className='nav-link'>
+Change Password
+      </NavLink>
+      <NavLink to='/sign-out' className='nav-link'>
+Sign Out
+      </NavLink>
+    </div>
   </Fragment>
+
 )
 
 const unauthenticatedOptions = (
@@ -22,11 +33,19 @@ const unauthenticatedOptions = (
 const Header = ({ user }) => (
   <Navbar bg='primary' variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', padding: '5px 0px 0px 0px', textDecoration: 'none' }}>GSD-Task-Force</Link>
+      <Link
+        to='/'
+        style={{
+          color: 'purple',
+          padding: '5px 0px 0px 0px',
+          textDecoration: 'none'
+        }}>
+GSD-Task-Force
+      </Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>
-      <Nav className='ml-auto'>
+      <Nav className='ml-auto d-flex justify-content-between'>
         {user && (
           <span className='navbar-text mr-2'>Welcome, {user.email}</span>
         )}

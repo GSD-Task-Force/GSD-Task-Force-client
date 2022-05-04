@@ -62,18 +62,22 @@ render () {
   const { title, description, owner } = this.state.task
   const { user, match, history } = this.props
   return (
-    <>
+    <div className='box2'>
       <h4>{title}</h4>
       <p>{description}</p>
       {user._id === owner && (
         <>
           <Button
-            onClick={() => history.push(`/tasks/${match.params.id}/update`)}>Update
+            className='upBt'
+            onClick={() => history.push(`/tasks/${match.params.id}/update`)}>
+Update
           </Button>
-          <Button onClick={this.handleDelete}>Delete</Button>
+          <Button className='delBt' onClick={this.handleDelete}>
+Delete
+          </Button>
         </>
       )}
-    </>
+    </div>
   )
 }
 }
