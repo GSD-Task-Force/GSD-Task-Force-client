@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { indexTasks, updateTask } from '../../api/tasks'
+import Card from './Card'
+import CheckedCard from './CheckedCard'
 
 class IndexTasks extends Component {
   constructor (props) {
@@ -8,7 +9,10 @@ class IndexTasks extends Component {
 
     this.state = {
       tasks: [],
-      inputText: ''
+      inputText: '',
+      showAll: true,
+      showUnchecked: false,
+      showChecked: false
     }
   }
 
@@ -46,32 +50,40 @@ class IndexTasks extends Component {
       // switch checked from true to false or false to true in the shallow copy
       tasks[index].checked = !tasks[index].checked
       updateTask(event.target.name, tasks[index], this.props.user)
-        .then(() =>
-          this.setState({ tasks: tasks })
+        .then(() => this.setState({ tasks: tasks }))
+        .catch((error) =>
+          this.props.msgAlert({
+            heading: 'Checked failure',
+            message:
+                  'Something went wrong with checking this box: ' + error.message,
+            variant: 'danger'
+          })
         )
-        .catch(error => this.props.msgAlert({
-          heading: 'Checked failure',
-          message: 'Something went wrong with checking this box: ' + error.message,
-          variant: 'danger'
-        }))
     }
 
-    inputHandler = (event) => {
-      const lowerCase = event.target.value.toLowerCase()
-      this.setState({ inputText: lowerCase })
-    }
-
-    render () {
-      const { tasks } = this.state
-
-      if (tasks === null) {
-        return 'Loading...'
+      inputHandler = (event) => {
+        const lowerCase = event.target.value.toLowerCase()
+        this.setState({ inputText: lowerCase })
       }
 
-      let taskJSX
-      if (tasks.length === 0) {
-        taskJSX = 'No tasks on your to do list. Try adding one.'
-      } else {
+      handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(event.target.value)
+        this.setState({ showAll: false, showUnchecked: false, showChecked: false })
+        this.setState({ [event.target.value]: true })
+      }
+
+      render () {
+        const { tasks, showAll, showChecked } = this.state
+
+        if (tasks === null) {
+          return 'Loading...'
+        }
+
+        let taskJSX
+        if (tasks.length === 0) {
+          taskJSX = 'No tasks on your to do list. Try adding one.'
+        } else if (showAll) {
         // taskJSX takes state data and turns it into a JSX format
         // It uses map to do that
         // What we're doing with the searchbar is hopping in right before we map anything
@@ -82,61 +94,92 @@ class IndexTasks extends Component {
         // So ['a', 'b', 'c'].indexOf['c'] = 2
         // If it isn't in the thing at all, indexOf returns -1
         // So what we're doing with this line is saying "If the index of user text is anything but -1 in task.title", map that task.
-        taskJSX = tasks.filter(task => task.title.toLowerCase().indexOf(this.state.inputText) > -1 || this.state.inputText === '').map((task) => {
-          if (task.checked) {
-            return (
-              <div className='card' key={task._id}>
-                <input
-                  type='checkbox'
-                  value={task.clicked}
-                  name={task._id}
+          taskJSX = tasks
+            .filter(
+              (task) =>
+                task.title.toLowerCase().indexOf(this.state.inputText) > -1 ||
+              this.state.inputText === ''
+            ).map((task) => {
+              if (task.checked) {
+                return (
+                  <CheckedCard
+                    _id={task._id}
+                    clicked={task.clicked}
+                    checked={task.checked}
+                    handleClick={this.handleClick}
+                    title={task.title}
+                    description={task.description}
+                  />
+                )
+              } else {
+                return (
+                  <Card
+                    _id={task._id}
+                    clicked={task.clicked}
+                    checked={task.checked}
+                    handleClick={this.handleClick}
+                    title={task.title}
+                    description={task.description}
+                  />
+                )
+              }
+            })
+        } else if (showChecked) {
+          taskJSX = tasks.filter((task) => task.title.toLowerCase().indexOf(this.state.inputText) > -1 || this.state.inputText === '').map((task) => {
+            if (task.checked) {
+              return (
+                <CheckedCard
+                  _id={task._id}
+                  clicked={task.clicked}
                   checked={task.checked}
-                  onClick={this.handleClick}></input>
-                <div className='card-body'>
-                  <Link to={`/tasks/${task._id}`}>
-                    <h5
-                      className='card-title'
-                      style={{ textDecoration: 'line-through' }}>
-                      {task.title}
-                    </h5>
-                  </Link>
-                  <p
-                    className='card-text'
-                    style={{ textDecoration: 'line-through' }}>
-                    {task.description}
-                  </p>
-                </div>
-              </div>
+                  handleClick={this.handleClick}
+                  title={task.title}
+                  description={task.description}
+                />
+              )
+            } else {
+              return ''
+            }
+          })
+        } else {
+          taskJSX = tasks
+            .filter(
+              (task) =>
+                task.title.toLowerCase().indexOf(this.state.inputText) > -1 || this.state.inputText === ''
             )
-          } else {
-            return (
-              <div className='card' key={task._id}>
-                <input
-                  type='checkbox'
-                  value={task.clicked}
-                  name={task._id}
-                  checked={task.checked}
-                  onClick={this.handleClick}></input>
-                <div className='card-body'>
-                  <Link to={`/tasks/${task._id}`}>
-                    <h5 className='card-title'>{task.title}</h5>
-                  </Link>
-                  <p className='card-text'>{task.description}</p>
-                </div>
-              </div>
-            )
-          }
-        })
-      }
+            .map((task) => {
+              if (!task.checked) {
+                return (
+                  <Card
+                    _id={task._id}
+                    clicked={task.clicked}
+                    checked={task.checked}
+                    handleClick={this.handleClick}
+                    title={task.title}
+                    description={task.description}
+                  />
+                )
+              } else {
+                return ''
+              }
+            })
+        }
 
-      return (
-        <>
-          <input type='text' onChange={this.inputHandler} />
-          <h3>Task List:</h3>
-          <ul>{taskJSX}</ul>
-        </>
-      )
-    }
+        return (
+          <>
+            <input type='text' onChange={this.inputHandler} />
+            <form onSubmit={this.handleSubmit}>
+              <select onChange={ event => this.handleSubmit(event) }>
+                <option value='showAll'>View All Tasks</option>
+                <option value='showChecked'>View Completed Tasks</option>
+                <option value='showUnchecked'>View In-Progress Tasks</option>
+              </select>
+            </form>
+            <h3>Task List:</h3>
+            <ul>{taskJSX}</ul>
+          </>
+        )
+      }
 }
 
 export default IndexTasks
