@@ -12,7 +12,7 @@ body{
     // CREATE TASK
     // TaskCreate [line 47 - line 75]
    // align-items: center;
-    background-color: rgb(126, 177, 234);
+    background-color: rgb(179, 124, 224);
     border: 3px solid rgb(49, 5, 245);
     color: blue;
     display: block;
@@ -33,7 +33,7 @@ body{
 .box1{
     // UpdateTask [line 72 - 100]
     align-items: center;
-    background-color: rgb(166, 97, 222);
+    background-color: rgb(179, 124, 224);
     border: 5px solid rgb(2, 0, 10);
     color: blue;
     display: block;
@@ -52,7 +52,7 @@ body{
 
     // Update / Delete page (in ShowTask) [lines 65 - 77]
     align-items: center;
-    background-color: rgb(224, 204, 240);
+    background-color: rgb(126, 177, 234);
     border: 5px solid rgb(49, 5, 245);
     color: blue;
     display: block;
@@ -75,8 +75,8 @@ body{
 }
 .sign{
     //sign up & sign in
-
-    background-color: rgb(76, 36, 108);
+    margin-top: 15px;
+    background-color: rgb(217, 149, 229);
     color:rgba(38, 7, 243, 0.982);
     border-radius: 10px;
     border-color: rgb(2, 199, 243);
@@ -85,7 +85,7 @@ body{
 .signBt{
     // sign up and sign in buttons
     background-color: green;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .row{
     // Change password
@@ -135,40 +135,17 @@ a:hover{
 }
 .upBt{
     // update button
-margin-left: 25px;
-background-image: url('./images/edit.jpg');
-background-repeat: no-repeat;
-background-size: 75%;
-background-color: white;
-color: blue;
-border-radius: 10%;
+    margin-left: 25px;
+    background-image: url('./images/edit.jpg');
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-color: white;
+    color: blue;
+    border-radius: 10%;
 }
 .submitBt{
     margin-top: 35px;
 }
-// .pageTitle{
-//     // IndexTask [line 59]
-//     align-items: center;
-//     background-color: rgb(178, 151, 199);
-//     border: 5px solid rgb(49, 5, 245);
-//     color: blue;
-//     //display: block;
-//     font-family: 'Lucida Sans',
-//     'Lucida Sans Regular',
-//     'Lucida Grande',
-//     'Lucida Sans Unicode',
-//     Geneva,
-//     Verdana,
-//     sans-serif,
-//     serif;
-    
-  
-//     border-radius: 10px;
-//     box-shadow: 5px 05px 5px 0px rgba(195, 4, 243, 0.75);
-//     padding-top: 10px;
-//     margin-left: 10px;
-//     margin-top: 20px;
-// }
 
 .d-flex{
     //
