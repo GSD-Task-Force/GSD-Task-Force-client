@@ -68,7 +68,6 @@ class IndexTasks extends Component {
 
       handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target.value)
         this.setState({ showAll: false, showUnchecked: false, showChecked: false })
         this.setState({ [event.target.value]: true })
       }

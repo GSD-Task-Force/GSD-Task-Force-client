@@ -16,11 +16,11 @@ function CheckedCard (props) {
             {props.title}
           </h5>
         </Link>
-        <p className='card-text' style={{ textDecoration: 'line-through' }}>
-          {props.description}
+        <p className='card-date' style={{ textDecoration: 'line-through' }}>
+          {props.date}
         </p>
         <p className='card-text' style={{ textDecoration: 'line-through' }}>
-          {props.date}
+          {props.description}
         </p>
       </div>
     </div>

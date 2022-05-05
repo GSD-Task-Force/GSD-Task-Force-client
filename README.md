@@ -1,6 +1,7 @@
 ** GSD Task List **
 
 # Link:
+[Server Repository](https://github.com/GSD-Task-Force/GSD-Task-Force-server)
 
 # Planning:
 

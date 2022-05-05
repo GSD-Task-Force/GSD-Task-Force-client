@@ -14,7 +14,7 @@ function Card (props) {
         <Link to={`/tasks/${props._id}`}>
           <h5 className='card-title'>{props.title}</h5>
         </Link>
-        <p className='card-text'>{props.date}</p>
+        <p className='card-date'>{props.date}</p>
         <p className='card-text'>{props.description}</p>
       </div>
     </div>
