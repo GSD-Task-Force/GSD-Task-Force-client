@@ -59,11 +59,12 @@ render () {
     return 'Loading...'
   }
 
-  const { title, description, owner } = this.state.task
+  const { title, description, date, owner } = this.state.task
   const { user, match, history } = this.props
   return (
     <div className='box2'>
       <h4>{title}</h4>
+      <p>Due By: {date}</p>
       <p>{description}</p>
       {user._id === owner && (
         <>

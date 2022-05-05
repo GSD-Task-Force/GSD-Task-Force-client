@@ -11,7 +11,8 @@ export const createTask = (data, user) => {
     data: {
       task: {
         title: data.title,
-        description: data.description
+        description: data.description,
+        date: data.date
       }
     }
   })
@@ -50,6 +51,7 @@ export const updateTask = (id, data, user) => {
       task: {
         title: data.title,
         description: data.description,
+        date: data.date,
         checked: data.checked
       }
     }

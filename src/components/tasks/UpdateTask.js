@@ -10,7 +10,8 @@ class UpdateTask extends Component {
 
     this.state = {
       title: '',
-      description: ''
+      description: '',
+      date: ''
     }
   }
 
@@ -20,7 +21,8 @@ class UpdateTask extends Component {
       .then((res) =>
         this.setState({
           title: res.data.task.title,
-          description: res.data.task.description
+          description: res.data.task.description,
+          date: res.data.task.date
         })
       )
       .then(() => {
@@ -90,6 +92,17 @@ render () {
             name='description'
             value={this.state.description}
             placeholder='Update Task Description'
+            onChange={this.handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId='date'>
+          <Form.Label>Date</Form.Label>
+          <Form.Control
+            required
+            type='text'
+            name='date'
+            value={this.state.date}
+            placeholder='Due Date: mm/dd/yyyy'
             onChange={this.handleChange}
           />
         </Form.Group>

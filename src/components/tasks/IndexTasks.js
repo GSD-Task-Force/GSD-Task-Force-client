@@ -109,6 +109,7 @@ class IndexTasks extends Component {
                     handleClick={this.handleClick}
                     title={task.title}
                     description={task.description}
+                    date={task.date}
                   />
 
                 )
@@ -121,6 +122,7 @@ class IndexTasks extends Component {
                     handleClick={this.handleClick}
                     title={task.title}
                     description={task.description}
+                    date={task.date}
                   />
                 )
               }
@@ -136,6 +138,7 @@ class IndexTasks extends Component {
                   handleClick={this.handleClick}
                   title={task.title}
                   description={task.description}
+                  date={task.date}
                 />
               )
             } else {
@@ -158,6 +161,7 @@ class IndexTasks extends Component {
                     handleClick={this.handleClick}
                     title={task.title}
                     description={task.description}
+                    date={task.date}
                   />
                 )
               } else {

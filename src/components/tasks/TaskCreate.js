@@ -68,6 +68,17 @@ class TaskCreate extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
+            <Form.Group controlId='date'>
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                required
+                type='text'
+                name='date'
+                value={this.state.date}
+                placeholder='Due Date: mm/dd/yyyy'
+                onChange={this.handleChange}
+              />
+            </Form.Group>
             <Button className='createBt' type='submit'>
             Submit
             </Button>

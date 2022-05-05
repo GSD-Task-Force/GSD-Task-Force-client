@@ -19,6 +19,9 @@ function CheckedCard (props) {
         <p className='card-text' style={{ textDecoration: 'line-through' }}>
           {props.description}
         </p>
+        <p className='card-text' style={{ textDecoration: 'line-through' }}>
+          {props.date}
+        </p>
       </div>
     </div>
   )
