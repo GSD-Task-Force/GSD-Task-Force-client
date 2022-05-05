@@ -110,6 +110,7 @@ class IndexTasks extends Component {
                     title={task.title}
                     description={task.description}
                   />
+
                 )
               } else {
                 return (
@@ -166,7 +167,7 @@ class IndexTasks extends Component {
         }
 
         return (
-          <>
+          <div className='taskList' >
             <input type='text' onChange={this.inputHandler} />
             <form onSubmit={this.handleSubmit}>
               <select onChange={ event => this.handleSubmit(event) }>
@@ -176,8 +177,8 @@ class IndexTasks extends Component {
               </select>
             </form>
             <h3>Task List:</h3>
-            <ul>{taskJSX}</ul>
-          </>
+            <ul className='d-flex flex-wrap' >{taskJSX}</ul>
+          </div>
         )
       }
 }

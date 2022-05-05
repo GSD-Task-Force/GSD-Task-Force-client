@@ -52,7 +52,7 @@ render () {
   const { email, password } = this.state
 
   return (
-    <div className='row'>
+    <div className='sign'>
       <div className='col-sm-10 col-md-8 mx-auto mt-5'>
         <h4>Sign In</h4>
         <Form onSubmit={this.onSignIn}>
@@ -78,7 +78,7 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <Button className='signBt' type='submit'>Submit</Button>
         </Form>
       </div>
     </div>

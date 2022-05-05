@@ -68,7 +68,7 @@ class TaskCreate extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button variant='primary' type='submit'>
+            <Button className='createBt' type='submit'>
             Submit
             </Button>
           </Form>

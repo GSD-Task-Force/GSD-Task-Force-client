@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function CheckedCard (props) {
   return (
     <div className='card' key={props._id}>
-      <input
+      <input className='check'
         type='checkbox'
         value={props.clicked}
         name={props._id}

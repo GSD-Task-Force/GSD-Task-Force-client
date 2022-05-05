@@ -36,11 +36,12 @@ const Header = ({ user }) => (
       <Link
         to='/'
         style={{
-          color: 'purple',
+          color: 'rgb(251, 8, 251)',
           padding: '5px 0px 0px 0px',
-          textDecoration: 'none'
-        }}>
-GSD-Task-Force
+          textDecoration: 'none',
+          fontSize: '22px',
+          fontFamily: 'Geneva, Verdana, sans-serif'
+        }}>GSD-Task-Force
       </Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
