@@ -92,10 +92,10 @@
 1. Under your Task click Delete
 
 ## Wireframe:
-[Wifeframe](https://imgur.com/gXGS6vC)
+![Wifeframe](Wireframe.png)
 
 ## ERD:
-[ERD](https://imgur.com/a/lU6PvwV)
+![ERD](ERD.png)
 
 ## Stretch Goals:
 
