@@ -33,6 +33,20 @@
 - Heroku
 - cURL
 
+# Paths and Methods
+
+- Auth
+  - Sign Up (POST) URL + '/sign-up/'
+  - Sign In (POST) URL + '/sign-in/'
+  - Sign Out (DELETE) URL + '/sign-out/'
+  - Change Password (PATCH) URL + '/change-password/'
+- Tasks
+  - Create Task (POST) URL + '/task/'
+  - Index Task (GET) URL + '/task/'
+  - Show Task (GET) URL +'/task/' + :id
+  - Update Task (PATCH) URL + '/task/' + :id
+  - Delete Task (DELETE) URL + '/task/' + :id
+
 # About this app:
 
 - GSD-Task-Force is a task list/reminder SPA that balances power and simplicity. This application allows members to quickly create, organize (completed/uncompleted), search, update, delete, and add due dates for each task.
@@ -96,6 +110,12 @@
 
 ## ERD:
 ![ERD](ERD.png)
+
+## Unfinished Tasks:
+
+- See each others tasks
+- Search by Task Description
+- Search by Due Date
 
 ## Stretch Goals:
 
