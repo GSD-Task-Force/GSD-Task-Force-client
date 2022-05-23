@@ -49,7 +49,9 @@ class IndexTasks extends Component {
       })
       // switch checked from true to false or false to true in the shallow copy
       tasks[index].checked = !tasks[index].checked
+      // update the task in the DB
       updateTask(event.target.name, tasks[index], this.props.user)
+        // set the state
         .then(() => this.setState({ tasks: tasks }))
         .catch((error) =>
           this.props.msgAlert({
@@ -66,6 +68,8 @@ class IndexTasks extends Component {
         this.setState({ inputText: lowerCase })
       }
 
+      // this form submits on change, sets all the check-related states to false, then sets the selected state to true
+      // these pieces of state are used for conditional rendering below
       handleSubmit = (event) => {
         event.preventDefault()
         this.setState({ showAll: false, showUnchecked: false, showChecked: false })
@@ -172,7 +176,7 @@ class IndexTasks extends Component {
         return (
           <div className='taskList' >
             <input type='text' onChange={this.inputHandler} />
-            <form onSubmit={this.handleSubmit}>
+            <form>
               <select onChange={ event => this.handleSubmit(event) }>
                 <option value='showAll'>View All Tasks</option>
                 <option value='showChecked'>View Completed Tasks</option>
