@@ -31,17 +31,10 @@ const unauthenticatedOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg='primary' variant='dark' expand='md'>
+  <Navbar bg='dark' variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link
-        to='/'
-        style={{
-          color: 'rgb(251, 8, 251)',
-          padding: '5px 0px 0px 0px',
-          textDecoration: 'none',
-          fontSize: '22px',
-          fontFamily: 'Geneva, Verdana, sans-serif'
-        }}>GSD-Task-Force
+      <Link style={{ textDecoration: 'none' }}
+        to='/tasks/'>GSD-Task-Force
       </Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />

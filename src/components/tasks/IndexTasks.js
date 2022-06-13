@@ -81,7 +81,7 @@ class IndexTasks extends Component {
 
         let taskJSX
         if (tasks.length === 0) {
-          taskJSX = 'No tasks on your to do list. Try adding one.'
+          taskJSX = 'No tasks on your to do list. Click \'Create Task\' to add one.'
         } else if (showAll) {
         // taskJSX takes state data and turns it into a JSX format
         // It uses map to do that
@@ -171,7 +171,7 @@ class IndexTasks extends Component {
 
         return (
           <div className='taskList' >
-            <input type='text' onChange={this.inputHandler} />
+            <input type='text' onChange={this.inputHandler} className="searchbar"/>
             <form onSubmit={this.handleSubmit}>
               <select onChange={ event => this.handleSubmit(event) }>
                 <option value='showAll'>View All Tasks</option>

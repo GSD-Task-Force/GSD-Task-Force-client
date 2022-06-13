@@ -71,7 +71,7 @@ handleSubmit = (event) => {
 
 render () {
   return (
-    <div className='box1'>
+    <div>
       <Form onSubmit={this.handleSubmit}>
         <Form.Group controlId='title'>
           <Form.Label>Title</Form.Label>

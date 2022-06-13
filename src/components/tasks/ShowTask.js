@@ -62,7 +62,7 @@ render () {
   const { title, description, date, owner } = this.state.task
   const { user, match, history } = this.props
   return (
-    <div className='box2'>
+    <div>
       <h4>{title}</h4>
       <p>Due By: {date}</p>
       <p>{description}</p>

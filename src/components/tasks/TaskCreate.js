@@ -44,10 +44,12 @@ class TaskCreate extends Component {
 
     render () {
       return (
-        <div className='box'>
+        <div>
+          <h2>Create a Task</h2>
+          <p>Fields marked with <span style={{ color: 'red' }}>*</span> are required</p>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId='title'>
-              <Form.Label>Title</Form.Label>
+              <Form.Label><span style={{ color: 'red' }}>*</span>Title</Form.Label>
               <Form.Control
                 required
                 type='text'
@@ -58,7 +60,7 @@ class TaskCreate extends Component {
               />
             </Form.Group>
             <Form.Group controlId='description'>
-              <Form.Label>Description</Form.Label>
+              <Form.Label><span style={{ color: 'red' }}>*</span>Description</Form.Label>
               <Form.Control
                 required
                 type='text'
@@ -69,7 +71,7 @@ class TaskCreate extends Component {
               />
             </Form.Group>
             <Form.Group controlId='date'>
-              <Form.Label>Date</Form.Label>
+              <Form.Label><span style={{ color: 'red' }}>*</span>Date</Form.Label>
               <Form.Control
                 required
                 type='text'
