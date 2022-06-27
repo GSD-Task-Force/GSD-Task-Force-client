@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/GSD-Task-Force-client/static/css/main.fc66c855.chunk.css",
-    "main.js": "/GSD-Task-Force-client/static/js/main.32f621bc.chunk.js",
-    "main.js.map": "/GSD-Task-Force-client/static/js/main.32f621bc.chunk.js.map",
+    "main.css": "/GSD-Task-Force-client/static/css/main.1a397bb6.chunk.css",
+    "main.js": "/GSD-Task-Force-client/static/js/main.32064c46.chunk.js",
+    "main.js.map": "/GSD-Task-Force-client/static/js/main.32064c46.chunk.js.map",
     "runtime-main.js": "/GSD-Task-Force-client/static/js/runtime-main.4351ab7c.js",
     "runtime-main.js.map": "/GSD-Task-Force-client/static/js/runtime-main.4351ab7c.js.map",
-    "static/js/2.8f08ab38.chunk.js": "/GSD-Task-Force-client/static/js/2.8f08ab38.chunk.js",
-    "static/js/2.8f08ab38.chunk.js.map": "/GSD-Task-Force-client/static/js/2.8f08ab38.chunk.js.map",
+    "static/js/2.8e800e3a.chunk.js": "/GSD-Task-Force-client/static/js/2.8e800e3a.chunk.js",
+    "static/js/2.8e800e3a.chunk.js.map": "/GSD-Task-Force-client/static/js/2.8e800e3a.chunk.js.map",
     "index.html": "/GSD-Task-Force-client/index.html",
-    "static/css/main.fc66c855.chunk.css.map": "/GSD-Task-Force-client/static/css/main.fc66c855.chunk.css.map",
-    "static/js/2.8f08ab38.chunk.js.LICENSE.txt": "/GSD-Task-Force-client/static/js/2.8f08ab38.chunk.js.LICENSE.txt"
+    "static/css/main.1a397bb6.chunk.css.map": "/GSD-Task-Force-client/static/css/main.1a397bb6.chunk.css.map",
+    "static/js/2.8e800e3a.chunk.js.LICENSE.txt": "/GSD-Task-Force-client/static/js/2.8e800e3a.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/GSD-Task-Force-client/static/media/trash1.0fc6921c.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.4351ab7c.js",
-    "static/js/2.8f08ab38.chunk.js",
-    "static/css/main.fc66c855.chunk.css",
-    "static/js/main.32f621bc.chunk.js"
+    "static/js/2.8e800e3a.chunk.js",
+    "static/css/main.1a397bb6.chunk.css",
+    "static/js/main.32064c46.chunk.js"
   ]
 }
